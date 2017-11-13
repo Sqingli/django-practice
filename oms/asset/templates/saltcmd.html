@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block css %}
+<link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                            <thead>
+                                <tr>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+							<form action="/asset/saltrun" method="post"> 
+						    ip: <input type="text" name="ip" value='{% if body.ip %}{{ body.ip }} {% else %}0.0.0.0{% endif %}'> <br>
+                            port: <input type="text" name="port" value='8000'> <br>
+						    tgt: <input type="text" name="tgt" value='{% if body.tgt %}{{ body.tgt }} {% else %}*{% endif %}'> <br>
+						    fun: <input type="text" name="fun" value='{% if body.fun %}{{ body.fun }} {% else %}test.ping{% endif %}'> <br>
+						    arg: <input type="text" name="arg" value='{% if body.arg %}{{ body.arg }} {% else %}{% endif %}'> <br>
+                            
+						    <input type="submit" value="saltrun">
+							</form>
+                            <textarea rows="10" cols="100">{{ result }} </textarea>
+                            </tbody>
+                        </table>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block css %}
+<link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                            <tbody>
+                            <table border="1" width="600">
+                            <tr>
+                                <th>id </th>
+                                <th>ip</th>
+                                <th>name</th>
+                                <th>status</th>
+                                <th>remark</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                            {% for list in host_list %}
+                            <tr>
+                                <th>{{ list.id }} </th>
+                                <th>{{ list.ip }} </th>
+                                <th>{{ list.hostname }} </th>
+                                <th>{{ list.status }} </th>
+                                <th>{{ list.remark }} </th>
+                                <th><a href="delete/{{ list.id }}">delete</a></th>
+                                <th><a href='edit/{{ list.id }}'>edit</a></th>
+                            </tr>
+							{% endfor %}
+                            </table>
+                            </tbody>
+                    </div>
+                    <div class="x_title">
+                        <tbody>
+							<form action="add" method="post">
+                            <table border="1" width="200">
+						    <tr>ip:</tr>       <input type="text" name="ip"> <br>
+						    <tr>hostname:</tr> <input type="text" name="hostname"> <br>
+						    status:   <input type="text" name="status"> <br>
+						    remark:    <input type="text" name="remark"> <br>
+						    <input type="submit" value="add">
+                            </table>
+							</form>
+                        </tbody>
+                    <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

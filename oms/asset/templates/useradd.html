@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block css %}
+<link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                            <thead>
+                                <tr>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+							<form action="{% url 'asset:useradd' %}" method="post"> 
+						    username: <input type="text" name="username"> <br>
+						    password: <input type="password" name="password"> <br>
+						    <input type="submit" value="useradd">
+							</form>
+                            </tbody>
+                        </table>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

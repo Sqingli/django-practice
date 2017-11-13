@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block css %}
+<link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                            <thead>
+                                <tr>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <form method='post'>
+                                {{ form }}
+                                <input type="submit" value="提交">
+                            </form>
+							<form action="{% url 'asset:login' %}" method="post">
+                            <input type="hidden" name="next" value="{{ request.GET.next }}" />
+						    username: <input type="text" name="username"> <br>
+						    password: <input type="text" name="password" value = {{ next }}> <br>
+						    <input type="submit" value="login">
+							</form>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

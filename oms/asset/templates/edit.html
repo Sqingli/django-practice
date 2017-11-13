@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block css %}
+<link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                            <thead>
+                                <tr>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for values in host %}
+							<form action="/asset/editing/{{ values.id}}" method="post"> 
+						    ip: <input type="text" name="ip" value='{{ values.ip }}'> <br>
+						    hostname: <input type="text" name="hostname" value='{{ values.hostname }}'> <br>
+						    status: <input type="text" name="status" value='{{ values.status }}'> <br>
+						    remark: <input type="text" name="remark" value='{{ values.remark }}'> <br>
+                            
+						    <input type="submit" value="edit">
+							</form>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
